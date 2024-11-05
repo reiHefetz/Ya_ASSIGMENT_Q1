@@ -8,11 +8,30 @@ public class Main {
             System.out.println(num);
         }
     }
-
+    public static boolean check (int i ) {
+        String str = Integer.toString(i);
+        int str_length = str.length();
+        int sum = 0;
+        for (int j = 0; j < str_length; j++) {
+            int digit = Character.getNumericValue(str.charAt(j));
+            sum += Math.pow(digit, str_length);
+        }
+        return sum == i;
+    }
     // פעולה למציאת n המספרים הנרקיסיסטיים הראשונים
     public static int[] findNarcissisticNumbers(int n) {
-        // TODO: השלם את הלוגיקה למציאת המספרים הנרקיסיסטיים
-        return new int[0]; // החזרה זמנית
+        int x = 0;
+        int [] arr = new int[n];
+        for (int i = 10; x <n; i ++)
+        {
+            if (check(i))
+            {
+                arr [x] = i;
+                x ++;
+
+            }
+        }
+        return  arr;
     }
 
 }
